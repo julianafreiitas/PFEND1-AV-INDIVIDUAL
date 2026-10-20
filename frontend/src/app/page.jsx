@@ -1,69 +1,143 @@
-import Image from "next/image";
+
+
+"use client";
+
+import { useState } from "react";
 import styles from "./page.module.css";
 
-export default function Home() {
+export default function Login() {
+  const [mostrarSenha, setMostrarSenha] = useState(false);
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [lembrar, setLembrar] = useState(false);
+
+  function handleLogin(event) {
+    event.preventDefault();
+
+    if (!email.trim() || !senha) {
+      alert("Preencha o e-mail e a senha.");
+      return;
+    }
+
+    alert("A tela está pronta! A autenticação será conectada ao backend.");
+  }
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
+    <main className={styles.login}>
+      <section className={styles.loginApresentacao}>
+        <div className={styles.marca}>
+          <div className={styles.marcaIcone}>♻</div>
+          <span>RECICLAGEM</span>
+        </div>
+
+        <div className={styles.apresentacaoTexto}>
+          <span className={styles.etiqueta}>
+            GESTÃO CORPORATIVA
+          </span>
+
           <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.js</code> file.
+            Treinamento de
+            <br />
+            <span>Reciclagem.</span>
           </h1>
+
+          <div className={styles.linhaVerde} />
+
           <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+            Gestão de treinamentos e controle
+            dos prazos de reciclagem em um só lugar.
           </p>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className={styles.apresentacaoRodape}>
+          Organização, segurança e acompanhamento.
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className={styles.loginConteudo}>
+        <div className={styles.loginCartao}>
+          <div className={styles.cartaoCabecalho}>
+              <h2>Bem-vinda de volta!</h2>
+              <p>Acesse sua conta para continuar.</p>
+          </div>
+
+          <form onSubmit={handleLogin}>
+            <div className={styles.campo}>
+              <label htmlFor="email">E-mail corporativo</label>
+              <input className={styles.input}
+                id="email"
+                type="email"
+                placeholder="seu@email.com"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                autoComplete="username"
+                required
+              />
+            </div>
+
+            <div className={styles.campo2}>
+              <label htmlFor="senha">Senha</label>
+
+              <div className={styles.senhaContainer}>
+                <input className={styles.input}
+                  id="senha"
+                  type={mostrarSenha ? "text" : "password"}
+                  placeholder="Digite sua senha"
+                  value={senha}
+                  onChange={(event) => setSenha(event.target.value)}
+                  autoComplete="current-password"
+                  required
+                />
+
+                <button
+                  className={styles.mostrarSenha}
+                  type="button"
+                  onClick={() => setMostrarSenha(!mostrarSenha)}
+                  aria-label={
+                    mostrarSenha ? "Ocultar senha" : "Mostrar senha"
+                  }
+                >
+                  {mostrarSenha ? "Ocultar" : "Mostrar"}
+                </button>
+              </div>
+            </div>
+
+            <div className={styles.opcoesLogin}>
+              <label className={styles.lembrar}>
+                <input
+                  type="checkbox"
+                  checked={lembrar}
+                  onChange={(event) => setLembrar(event.target.checked)}
+                />
+                Lembrar de mim
+              </label>
+
+              <button
+                type="button"
+                className={styles.linkSenha}
+                onClick={() =>
+                  alert("A recuperação de senha será implementada depois.")
+                }
+              >
+                Esqueceu a senha?
+              </button>
+            </div>
+
+            <button
+              className={styles.botaoEntrar}
+              type="submit"
+            >
+              Entrar <span>→</span>
+            </button>
+          </form>
+
+          <div className={styles.cartaoRodape}>
+            <span>♙</span>
+            Acesso restrito a usuários autorizados.
+          </div>
+        </div>
+
+      </section>
+    </main>
   );
 }

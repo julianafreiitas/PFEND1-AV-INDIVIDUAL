@@ -1,150 +1,94 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
 
-  --text-primary: #000;
-  --text-secondary: #666;
+.login {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: #26382f;
+  background: #f4f6f4;
+}
 
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
+.input{
+  height: 50px;
+  width: 90%;
+  background-color: #f4f6f4;
+  border: 1px solid rgba(206, 199, 199, 0.507);
+  border-radius: 5px;
+  padding: 10px;
+}
 
+.campo{
+  width: 500px;
   display: flex;
-  flex: 1;
+  flex-direction: column;
+  margin-bottom: 40px;
+  /* background-color: #26382f; */
+}
+
+.loginApresentacao {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px 10%;
+  color: white;
+  background: #172b22;
+}
+
+.titulo {
+  font-size: 48px;
+  line-height: 1.2;
+}
+
+.loginConteudo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.loginCartao {
+  height: 550px;
+  width: 100%;
+  max-width: 700px;
+  padding: 10px;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 15px 40px #172b2210;
+  display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.cartaoCabecalho h2{
+  display: flex;
   justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
-}
-
-.main {
-  display: flex;
-  flex: 1;
   width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
-}
-
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
-}
-
-.intro h1 {
-  max-width: 320px;
   font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
+  /* background-color: #26382f; */
+  margin-bottom:0;
 }
 
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
-}
-
-.ctas a {
+.cartaoCabecalho p{
+  /* background-color: aqua; */
+  margin-bottom: 100px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
-}
-
-a.secondary {
-  border-color: var(--button-secondary-border);
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
+@media (max-width: 850px) {
+  .login {
+    grid-template-columns: 1fr;
   }
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-}
-
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
+  .loginApresentacao {
+    padding: 35px 7%;
   }
 
-  .intro {
-    gap: 16px;
+  .titulo {
+    font-size: 36px;
   }
 
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
+  .loginCartao {
+    padding: 28px 22px;
   }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
-  }
-}
-
-.code {
-  font-family: var(--font-geist-mono);
-  font-size: 0.9em;
-  background: color-mix(in srgb, currentColor 8%, transparent);
-  padding: 0.1em 0.4em;
-  border-radius: 6px;
 }
