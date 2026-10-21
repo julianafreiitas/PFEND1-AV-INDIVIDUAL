@@ -1,3 +1,24 @@
+.tituloVw{
+  font-size: 80px;
+}
+
+.subTitulo{
+  font-size: 20px;
+}
+
+.linha{
+  height: 2px;
+  width: 150px;
+  background-color: #557755;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.cor{
+    color: #557755;
+}
+
+
 
 .login {
   display: grid;
@@ -8,6 +29,8 @@
   background: #f4f6f4;
 }
 
+
+
 .input{
   height: 50px;
   width: 90%;
@@ -15,14 +38,23 @@
   border: 1px solid rgba(206, 199, 199, 0.507);
   border-radius: 5px;
   padding: 10px;
+  color: #172b22;
 }
 
 .campo{
-  width: 500px;
+  width: 600px;
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
+  padding-left: 70px;
   /* background-color: #26382f; */
+}
+
+.campo2{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  padding-left: 70px;
 }
 
 .loginApresentacao {
@@ -59,7 +91,24 @@
   align-items: center;
 }
 
+.botaoEntrar{
+  height: 45px;
+  width: 480px;
+  background-color: #172b22b4;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn{
+  padding-left: 70px;
+  margin-bottom: 50px;
+}
+
+
+
 .cartaoCabecalho h2{
+  margin-top: 25px;
   display: flex;
   justify-content: center;
   width: 100%;

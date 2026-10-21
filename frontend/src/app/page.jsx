@@ -26,30 +26,24 @@ export default function Login() {
     <main className={styles.login}>
       <section className={styles.loginApresentacao}>
         <div className={styles.marca}>
-          <div className={styles.marcaIcone}>♻</div>
-          <span>RECICLAGEM</span>
         </div>
 
         <div className={styles.apresentacaoTexto}>
-          <span className={styles.etiqueta}>
-            GESTÃO CORPORATIVA
-          </span>
-
-          <h1>
-            Treinamento de
-            <br />
-            <span>Reciclagem.</span>
+        <h1 className={styles.tituloVw}>
+          Treinamento de <span className={styles.cor}>Reciclagem.</span>
           </h1>
+          <div className={styles.linha}></div>
+
 
           <div className={styles.linhaVerde} />
 
-          <p>
+          <p className={styles.subTitulo}>
             Gestão de treinamentos e controle
             dos prazos de reciclagem em um só lugar.
           </p>
         </div>
 
-        <div className={styles.apresentacaoRodape}>
+        <div className={styles.subTitulo}>
           Organização, segurança e acompanhamento.
         </div>
       </section>
@@ -57,8 +51,8 @@ export default function Login() {
       <section className={styles.loginConteudo}>
         <div className={styles.loginCartao}>
           <div className={styles.cartaoCabecalho}>
-              <h2>Bem-vinda de volta!</h2>
-              <p>Acesse sua conta para continuar.</p>
+            <h2>Bem-vinda de volta!</h2>
+            <p>Acesse sua conta para continuar.</p>
           </div>
 
           <form onSubmit={handleLogin}>
@@ -89,20 +83,21 @@ export default function Login() {
                   required
                 />
 
-                <button
+                {/* <div 
                   className={styles.mostrarSenha}
                   type="button"
+                  
                   onClick={() => setMostrarSenha(!mostrarSenha)}
                   aria-label={
                     mostrarSenha ? "Ocultar senha" : "Mostrar senha"
                   }
                 >
                   {mostrarSenha ? "Ocultar" : "Mostrar"}
-                </button>
+                </div> */}
               </div>
             </div>
 
-            <div className={styles.opcoesLogin}>
+            {/* <div className={styles.opcoesLogin}>
               <label className={styles.lembrar}>
                 <input
                   type="checkbox"
@@ -110,8 +105,8 @@ export default function Login() {
                   onChange={(event) => setLembrar(event.target.checked)}
                 />
                 Lembrar de mim
-              </label>
-
+              </label> */}
+            {/* 
               <button
                 type="button"
                 className={styles.linkSenha}
@@ -120,19 +115,20 @@ export default function Login() {
                 }
               >
                 Esqueceu a senha?
+              </button> */}
+            {/* </div> */}
+
+    <div className={styles.btn}>
+              <button className={styles.botaoEntrar} type="submit">
+                Entrar
               </button>
             </div>
 
-            <button
-              className={styles.botaoEntrar}
-              type="submit"
-            >
-              Entrar <span>→</span>
-            </button>
+
           </form>
 
           <div className={styles.cartaoRodape}>
-            <span>♙</span>
+
             Acesso restrito a usuários autorizados.
           </div>
         </div>
