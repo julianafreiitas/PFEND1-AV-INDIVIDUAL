@@ -1,4 +1,7 @@
 "use client";
+import "./cadastro.css";
+import Header from "../components/header";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import { useState, useEffect } from "react";
 
@@ -137,161 +140,12 @@ setErro("");
 }
 
 return (
+<Header>
+<main className="principal">
 
-  
 
-  
-  
-<main className="container py-4 py-md-5">
-<div className="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
-
-  <aside>
-
-    <div
-  className="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary"
-  style={{ width: 280 }}
->
-  {" "}
-  <a
-    href="/"
-    className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
-  >
-    {" "}
-    <svg className="bi pe-none me-2" width={40} height={32} aria-hidden="true">
-      <use xlinkHref="#bootstrap" />
-    </svg>{" "}
-    <span className="fs-4">Sidebar</span>{" "}
-  </a>{" "}
-  <hr />{" "}
-  <ul className="nav nav-pills flex-column mb-auto">
-    {" "}
-    <li className="nav-item">
-      {" "}
-      <a href="#" className="nav-link active" aria-current="page">
-        {" "}
-        <svg
-          className="bi pe-none me-2"
-          width={16}
-          height={16}
-          aria-hidden="true"
-        >
-          <use xlinkHref="#home" />
-        </svg>
-        Home
-      </a>{" "}
-    </li>{" "}
-    <li>
-      {" "}
-      <a href="#" className="nav-link link-body-emphasis">
-        {" "}
-        <svg
-          className="bi pe-none me-2"
-          width={16}
-          height={16}
-          aria-hidden="true"
-        >
-          <use xlinkHref="#speedometer2" />
-        </svg>
-        Dashboard
-      </a>{" "}
-    </li>{" "}
-    <li>
-      {" "}
-      <a href="#" className="nav-link link-body-emphasis">
-        {" "}
-        <svg
-          className="bi pe-none me-2"
-          width={16}
-          height={16}
-          aria-hidden="true"
-        >
-          <use xlinkHref="#table" />
-        </svg>
-        Orders
-      </a>{" "}
-    </li>{" "}
-    <li>
-      {" "}
-      <a href="#" className="nav-link link-body-emphasis">
-        {" "}
-        <svg
-          className="bi pe-none me-2"
-          width={16}
-          height={16}
-          aria-hidden="true"
-        >
-          <use xlinkHref="#grid" />
-        </svg>
-        Products
-      </a>{" "}
-    </li>{" "}
-    <li>
-      {" "}
-      <a href="#" className="nav-link link-body-emphasis">
-        {" "}
-        <svg
-          className="bi pe-none me-2"
-          width={16}
-          height={16}
-          aria-hidden="true"
-        >
-          <use xlinkHref="#people-circle" />
-        </svg>
-        Customers
-      </a>{" "}
-    </li>{" "}
-  </ul>{" "}
-  <hr />{" "}
-  <div className="dropdown">
-    {" "}
-    <a
-      href="#"
-      className="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      {" "}
-      <img
-        src="https://github.com/mdo.png"
-        alt=""
-        width={32}
-        height={32}
-        className="rounded-circle me-2"
-      />{" "}
-      <strong>mdo</strong>{" "}
-    </a>{" "}
-    <ul className="dropdown-menu text-small shadow">
-      {" "}
-      <li>
-        <a className="dropdown-item" href="#">
-          New project...
-        </a>
-      </li>{" "}
-      <li>
-        <a className="dropdown-item" href="#">
-          Settings
-        </a>
-      </li>{" "}
-      <li>
-        <a className="dropdown-item" href="#">
-          Profile
-        </a>
-      </li>{" "}
-      <li>
-        <hr className="dropdown-divider" />
-      </li>{" "}
-      <li>
-        <a className="dropdown-item" href="#">
-          Sign out
-        </a>
-      </li>{" "}
-    </ul>{" "}
-  </div>{" "}
-</div>
-
-  </aside>
-
-<div>
+<div className="dash">
+<div >
 <h1 className="fw-bold mb-1">Treinamentos de Reciclagem</h1>
 <p className="text-secondary mb-0">
 Cadastre e acompanhe os treinamentos realizados.
@@ -301,7 +155,7 @@ Cadastre e acompanhe os treinamentos realizados.
     <span className="badge text-bg-success fs-6">
       {lista.length} registro(s)
     </span>
-  </div>
+ 
 
   {mensagem && (
     <div className="alert alert-success" role="alert">
@@ -467,11 +321,13 @@ Cadastre e acompanhe os treinamentos realizados.
   </section>
 
   <div className="mt-4">
-    <a href="/dashboard" className="btn btn-outline-secondary">
+    <a href="/treinamentos/dash" className="btn btn-outline-secondary">
       Voltar ao painel
     </a>
   </div>
-</main>
 
+  </div>
+</main>
+</Header>
 );
 }

@@ -3,9 +3,11 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
 
 export default function Login() {
+  const router = useRouter();
   const [mostrarSenha, setMostrarSenha] = useState(false);
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
@@ -19,7 +21,7 @@ export default function Login() {
       return;
     }
 
-    alert("A tela está pronta! A autenticação será conectada ao backend.");
+    router.push("/treinamentos/dash");
   }
 
   return (
