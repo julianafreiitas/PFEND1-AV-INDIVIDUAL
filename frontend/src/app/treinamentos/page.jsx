@@ -5,12 +5,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { useState, useEffect } from "react";
 
-const API = "http://localhost:3001/treinamentos";
+const API = "/api/treinamentos";
 
 const formularioInicial = {
   titulo: "",
   carga_horaria: "",
-  data_realizacao: "",
   descricao: "",
 };
 
@@ -34,7 +33,7 @@ const resposta = await fetch(API);
   const dados = await resposta.json();
   setLista(dados);
 } catch {
-  setErro("Não foi possível conectar à API. Confira se o backend está rodando.");
+  setErro("Não foi possível carregar os dados. Atualize a página e tente novamente.");
 } finally {
   setCarregando(false);
 }
@@ -55,7 +54,7 @@ event.preventDefault();
 setMensagem("");
 setErro("");
 
-if (!form.titulo.trim() || !form.carga_horaria || !form.data_realizacao || !form.descricao.trim()) {
+if (!form.titulo.trim() || !form.carga_horaria || !form.descricao.trim()) {
   setErro("Preencha todos os campos.");
   return;
 }
@@ -102,7 +101,6 @@ function editar(item) {
 setForm({
 titulo: item.titulo ?? "",
 carga_horaria: String(item.carga_horaria ?? ""),
-data_realizacao: item.data_realizacao ?? "",
 descricao: item.descricao ?? "",
 });
 setEditando(item.id);
@@ -206,24 +204,7 @@ Cadastre e acompanhe os treinamentos realizados.
               onChange={alterar}
               required
             />
-          </div>
-
-          <div className="col-12 col-md-3">
-            <label htmlFor="data_realizacao" className="form-label">
-              Data de realização
-            </label>
-            <input
-              id="data_realizacao"
-              name="data_realizacao"
-              type="date"
-              className="form-control"
-              value={form.data_realizacao}
-              onChange={alterar}
-              required
-            />
-          </div>
-
-          <div className="col-12">
+          </div><div className="col-12">
             <label htmlFor="descricao" className="form-label">
               Descrição
             </label>
@@ -281,7 +262,6 @@ Cadastre e acompanhe os treinamentos realizados.
               <tr>
                 <th>Treinamento</th>
                 <th>Carga horária</th>
-                <th>Data</th>
                 <th>Descrição</th>
                 <th className="text-nowrap">Ações</th>
               </tr>
@@ -291,7 +271,6 @@ Cadastre e acompanhe os treinamentos realizados.
                 <tr key={item.id}>
                   <td className="fw-semibold">{item.titulo}</td>
                   <td>{item.carga_horaria} h</td>
-                  <td>{item.data_realizacao}</td>
                   <td>{item.descricao}</td>
                   <td>
                     <div className="d-flex gap-2">

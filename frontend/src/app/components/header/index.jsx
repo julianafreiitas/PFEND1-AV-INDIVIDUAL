@@ -12,38 +12,29 @@ const links = [
 export default function Header({ children }) {
   const pathname = usePathname();
   const router = useRouter();
+  const paginaAtual = links.find(link => link.href === pathname)?.label || "Painel";
 
-  function sair() {
-    router.push("/");
-  }
-
-  return (
-    <div className="d-flex min-vh-100 bg-light">
-      <aside className="app-sidebar d-flex flex-column p-3 text-white">
-        <Link href="/treinamentos/dash" className="fs-5 fw-bold text-white text-decoration-none mb-4">
-          Reciclagem
-        </Link>
-        <nav className="nav nav-pills flex-column gap-2">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`nav-link ${pathname === link.href ? "active" : "text-white"}`}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-        <button type="button" className="btn btn-outline-light mt-auto" onClick={sair}>
-          Sair
-        </button>
-      </aside>
-      <div className="flex-grow-1 min-vw-0">
-        <header className="app-topbar bg-white border-bottom px-4 py-3">
-          <span className="fw-semibold text-secondary">Sistema de gestão de treinamentos</span>
-        </header>
-        <main className="container-fluid p-3 p-lg-4">{children}</main>
-      </div>
+  return <div className="app-shell d-flex min-vh-100">
+    <aside className="app-sidebar d-flex flex-column text-white">
+      <Link href="/treinamentos/dash" className="brand-lockup" aria-label="Reciclagem, ir para o dashboard">
+        <span className="brand-mark" aria-hidden="true">R</span>
+        <span className="brand-copy"><strong>Reciclagem</strong><small>GESTÃO DE TREINAMENTOS</small></span>
+      </Link>
+      <div className="sidebar-section-label">MENU PRINCIPAL</div>
+      <nav className="nav nav-pills flex-column sidebar-nav" aria-label="Navegação principal">
+        {links.map(link => {
+          const active = pathname === link.href;
+          return <Link key={link.href} href={link.href} aria-label={link.label} aria-current={active ? "page" : undefined} className={`nav-link sidebar-link ${active ? "active" : ""}`}>
+            <span className="sidebar-link-mark" aria-hidden="true" />
+            <span className="nav-label">{link.label}</span>
+          </Link>;
+        })}
+      </nav>
+      <div className="sidebar-bottom"><span className="sidebar-bottom-caption">Sessão atual</span><button type="button" className="sidebar-logout" onClick={() => router.push("/")}><span className="logout-mark" aria-hidden="true">↗</span><span className="logout-label">Sair</span></button></div>
+    </aside>
+    <div className="app-content">
+      <header className="app-topbar"><div><span className="topbar-caption">SISTEMA DE TREINAMENTOS</span><span className="topbar-page">{paginaAtual}</span></div><span className="topbar-status"><i aria-hidden="true" /> Painel de controle</span></header>
+      <main className="container-fluid app-main">{children}</main>
     </div>
-  );
+  </div>;
 }
